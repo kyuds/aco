@@ -1,4 +1,7 @@
-# acotsp
-Ant Colony Optimization for TSP
+# aco
+Ant Colony Optimization
 
-Assumptions: graph is complete and weighted, each node is only distinguishable by a unique identifier. Wanted to try out implementing ant colony optimization from scratch. 
+- [ ] Traveling Salesman
+- [ ] [Sudoku Game](https://arxiv.org/pdf/1805.03545.pdf)
+
+I wanted to try implementing ant colony optimization.

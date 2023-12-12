@@ -2,14 +2,26 @@ CC := g++
 
 FLAGS := -std=c++20
 
-MAIN_DIR := src
-MAIN_FILES := $(wildcard $(MAIN_DIR)/*.cc)
-MAIN_HEADERS := $(wildcard $(MAIN_DIR)/*.hh)
+SUDOKU_DIR := src/sudoku
+SUDOKU_FILES := $(wildcard $(SUDOKU_DIR)/*.cc)
+SUDOKU_HEADERS := $(wildcard $(SUDOKU_DIR)/*.hh)
 
-OUT_FILE := acotsp
+TSP_DIR := src/tsp
+TSP_FILES := $(wildcard $(TSP_DIR)/*.cc)
+TSP_HEADERS := $(wildcard $(TSP_DIR)/*.hh)
 
-acotsp: $(MAIN_FILES) $(MAIN_HEADERS)
-	$(CC) $(FLAGS) $(MAIN_FILES) -o $(OUT_FILE)
+OUT_FILE_SUDOKU := acosudoku
+OUT_FILE_TSP := acotsp
+
+help:
+	@echo "Enter 'make sudoku' or 'make tsp' to build for either optimization."
+
+sudoku: $(SUDOKU_FILES) $(SUDOKU_HEADERS)
+	$(CC) $(FLAGS) $(SUDOKU_FILES) -o $(OUT_FILE_SUDOKU)
+
+tsp: $(TSP_FILES) $(TSP_HEADERS)
+	$(CC) $(FLAGS) $(TSP_FILES) -o $(OUT_FILE_TSP)
 
 clean:
-	rm -f $(OUT_FILE)
+	rm -rf $(OUT_FILE_SUDOKU)
+	rm -rf $(OUT_FILE_TSP)
