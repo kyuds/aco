@@ -19,9 +19,9 @@ class DMatrix {
         void set(int i, int j, T val);
         int getLength();
 
-        #ifdef DEV_MODE
+#ifdef DEV_MODE
         void print();
-        #endif
+#endif
     private:
         T ** arr;
         int length;
