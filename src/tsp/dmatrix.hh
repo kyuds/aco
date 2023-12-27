@@ -4,8 +4,6 @@
 #include <cstdlib>
 #include <iostream>
 
-#define DEV_MODE
-
 // Graph represented as a distance matrix 
 // for ant colony optimization
 
@@ -19,9 +17,7 @@ class DMatrix {
         void set(int i, int j, T val);
         int getLength();
 
-#ifdef DEV_MODE
         void print();
-#endif
     private:
         T ** arr;
         int length;
@@ -35,9 +31,7 @@ DMatrix<int> * fillRandom(int length, unsigned int seed, int min, int max);
 DMatrix<int> * fillFromFile(const char * filename);
 
 // for making examples
-#ifdef DEV_MODE
 void outputToFile(const char * filename, DMatrix<int> * dm);
-#endif
 
 // mostly for pheromone map init.
 template <typename T>
@@ -87,7 +81,6 @@ int DMatrix<T>::getLength() {
     return length;
 }
 
-#ifdef DEV_MODE
 template <typename T>
 void DMatrix<T>::print() {
     for (int i = 0; i < length; i++) {
@@ -97,6 +90,5 @@ void DMatrix<T>::print() {
         std::cout << std::endl;
     }
 }
-#endif
 
 #endif

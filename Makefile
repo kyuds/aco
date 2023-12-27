@@ -1,6 +1,6 @@
 CC := g++
 
-FLAGS := -std=c++20
+FLAGS := -std=c++20 -D_LIBCPP_DISABLE_AVAILABILITY
 
 SUDOKU_DIR := src/sudoku
 SUDOKU_FILES := $(wildcard $(SUDOKU_DIR)/*.cc)

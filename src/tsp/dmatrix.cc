@@ -36,7 +36,6 @@ DMatrix<int> * fillFromFile(const char * filename) {
     return dm;
 }
 
-#ifdef DEV_MODE
 void outputToFile(const char * filename, DMatrix<int> * dm) {
     FILE * f = fopen(filename, "w");
     assert(f != NULL);
@@ -49,4 +48,3 @@ void outputToFile(const char * filename, DMatrix<int> * dm) {
     }
     fclose(f);
 }
-#endif

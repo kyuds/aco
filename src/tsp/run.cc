@@ -1,20 +1,26 @@
 #include <iostream>
 #include <cstdlib>
 
+#include "aco.hh"
 #include "dmatrix.hh"
 
-int main(int argc, char ** argv) {
+int main(void) {
+    // Settings:
+    int min_val = 1;
+    int max_val = 10;
+    unsigned int seed = 1;
     int graph_size = 20;
-    if (argc == 2) {
-        graph_size = atoi(argv[1]) || graph_size;
-    }
 
-    // auto d = fillRandom(graph_size, 0, 1, 10);
-    // d->print();
-    // outputToFile("samples/acotsp1.txt", d);
+    auto dm = fillRandom(graph_size, seed, min_val, max_val);
 
-    auto dm = fillFromFile("samples/acotsp1.txt");
-    dm->print();
+    // Example for file IO:
+    // dm->print();
+    // outputToFile("samples/acotsp1.txt", dm);
+    // auto dm = fillFromFile("samples/acotsp1.txt");
+    // dm->print();
+
+    Aco * aco = new Aco(defaultConfig(), dm);
+    std::vector<int> run = aco->optimize(true);
 
     return 0;
 }
